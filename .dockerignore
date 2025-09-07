@@ -1,0 +1,23 @@
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Git
+.git
+.gitignore
+
+# Build outputs
+dist
+coverage
+
+# OS junk
+.DS_Store
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Prisma
+/generated/prisma
+prisma/generated
+node_modules/.prisma

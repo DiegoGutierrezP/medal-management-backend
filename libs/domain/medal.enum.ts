@@ -1,0 +1,9 @@
+export enum Medal {
+  BRONCE = 'BRONCE',
+  PLATA = 'PLATA',
+  ORO = 'ORO',
+  PLATINO = 'PLATINO',
+  DIAMANTE = 'DIAMANTE',
+  MAESTRO = 'MAESTRO',
+  GRAN_MAESTRO = 'GRAN_MAESTRO',
+}
