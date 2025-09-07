@@ -1,13 +1,13 @@
 version: "3.7"
 services:
-  # postgres:
-  #   image: postgres:14
-  #   ports:
-  #     - "5432:5432"
-  #   environment:
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=postgres
-  #     - POSTGRES_DB=medals
+  postgres:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=medals
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.5.3
@@ -44,8 +44,12 @@ services:
     depends_on:
       kafka:
         condition: service_healthy
+      postgres:
+        condition: service_started
     env_file:
       - .env
+    command: >
+      sh -c "npx prisma migrate deploy && node dist/apps/ms-api/main.js"
 
   worker:
     build:
